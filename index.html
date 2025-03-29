@@ -1,108 +1,31 @@
 <!DOCTYPE html>
-<html lang="es" style="background:#000">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>LuxuryGroup</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Segoe UI', sans-serif;
-    }
+<html lang="es" style="background:#000"><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/content/location/location.js" id="eppiocemhmnlbhjplcgkofciiegomcon"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/extend-native-history-api.js"></script><script src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/libs/requests.js"></script><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxuryGroup</title>
+    <link rel="stylesheet" href="./LuxuryGroup_files/estilos.css">
 
-    body {
-      background-color: #000;
-      color: #fff;
-      text-align: center;
-      padding: 20px;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-    }
+<script bis_use="true" type="text/javascript" charset="utf-8" data-bis-config="[&quot;facebook.com/&quot;,&quot;twitter.com/&quot;,&quot;youtube-nocookie.com/embed/&quot;,&quot;//vk.com/&quot;,&quot;//www.vk.com/&quot;,&quot;linkedin.com/&quot;,&quot;//www.linkedin.com/&quot;,&quot;//instagram.com/&quot;,&quot;//www.instagram.com/&quot;,&quot;//www.google.com/recaptcha/api2/&quot;,&quot;//hangouts.google.com/webchat/&quot;,&quot;//www.google.com/calendar/&quot;,&quot;//www.google.com/maps/embed&quot;,&quot;spotify.com/&quot;,&quot;soundcloud.com/&quot;,&quot;//player.vimeo.com/&quot;,&quot;//disqus.com/&quot;,&quot;//tgwidget.com/&quot;,&quot;//js.driftt.com/&quot;,&quot;friends2follow.com&quot;,&quot;/widget&quot;,&quot;login&quot;,&quot;//video.bigmir.net/&quot;,&quot;blogger.com&quot;,&quot;//smartlock.google.com/&quot;,&quot;//keep.google.com/&quot;,&quot;/web.tolstoycomments.com/&quot;,&quot;moz-extension://&quot;,&quot;chrome-extension://&quot;,&quot;/auth/&quot;,&quot;//analytics.google.com/&quot;,&quot;adclarity.com&quot;,&quot;paddle.com/checkout&quot;,&quot;hcaptcha.com&quot;,&quot;recaptcha.net&quot;,&quot;2captcha.com&quot;,&quot;accounts.google.com&quot;,&quot;www.google.com/shopping/customerreviews&quot;,&quot;buy.tinypass.com&quot;,&quot;gstatic.com&quot;,&quot;secureir.ebaystatic.com&quot;,&quot;docs.google.com&quot;,&quot;contacts.google.com&quot;,&quot;github.com&quot;,&quot;mail.google.com&quot;,&quot;chat.google.com&quot;,&quot;audio.xpleer.com&quot;,&quot;keepa.com&quot;,&quot;static.xx.fbcdn.net&quot;,&quot;sas.selleramp.com&quot;,&quot;1plus1.video&quot;,&quot;console.googletagservices.com&quot;,&quot;//lnkd.demdex.net/&quot;,&quot;//radar.cedexis.com/&quot;,&quot;//li.protechts.net/&quot;,&quot;challenges.cloudflare.com/&quot;,&quot;ogs.google.com&quot;]" src="chrome-extension://eppiocemhmnlbhjplcgkofciiegomcon/executers/vi-tr.js"></script></head>
 
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
+<body __processed_384af753-76be-4856-9299-ebe0c3f61e97__="true" bis_register="W3sibWFzdGVyIjp0cnVlLCJleHRlbnNpb25JZCI6ImVwcGlvY2VtaG1ubGJoanBsY2drb2ZjaWllZ29tY29uIiwiYWRibG9ja2VyU3RhdHVzIjp7IkRJU1BMQVkiOiJkaXNhYmxlZCIsIkZBQ0VCT09LIjoiZGlzYWJsZWQiLCJUV0lUVEVSIjoiZGlzYWJsZWQiLCJSRURESVQiOiJkaXNhYmxlZCIsIlBJTlRFUkVTVCI6ImRpc2FibGVkIiwiSU5TVEFHUkFNIjoiZGlzYWJsZWQiLCJMSU5LRURJTiI6ImRpc2FibGVkIiwiQ09ORklHIjoiZGlzYWJsZWQifSwidmVyc2lvbiI6IjIuMC4yMCIsInNjb3JlIjoyMDAyMH1d" bis_skin_checked="1">
 
-    .text-overlay {
-      margin-bottom: 30px;
-    }
-
-    .text-overlay h2 {
-      font-size: 24px;
-      color: #fff;
-      line-height: 1.5;
-    }
-
-    .text-overlay p {
-      font-size: 18px;
-      color: #bbb;
-      line-height: 1.4;
-    }
-
-    .button-container {
-      margin-top: 20px;
-    }
-
-    .casino-button {
-      display: inline-block;
-      background-color: #25D366;
-      color: #fff;
-      padding: 14px 30px;
-      font-size: 18px;
-      font-weight: bold;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
-      transition: background-color 0.3s ease;
-      animation: pulse 1.8s infinite;
-    }
-
-    .casino-button:hover {
-      background-color: #128C7E;
-    }
-
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.04); }
-      100% { transform: scale(1); }
-    }
-
-    @media (max-width: 600px) {
-      .text-overlay h2 {
-        font-size: 20px;
-      }
-
-      .text-overlay p {
-        font-size: 16px;
-      }
-
-      .casino-button {
-        font-size: 16px;
-        padding: 12px 24px;
-      }
-    }
-  </style>
-</head>
-
-<body>
-  <div class="container">
-    <div class="text-overlay">
-      <br>
-      <h2>BIENVENIDO, HACE CLICK <br> EN EL BOTÓN Y REGÍSTRATE GRATIS.</h2>
-      <br>
-      <p>EMPEZA A GANAR PREMIOS CON NOSOTROS <br> Y DISFRUTA DE NUESTROS BONOS.</p>
+    <div class="container" bis_skin_checked="1">
+    
+        <div class="text-overlay" bis_skin_checked="1">
+            <br>
+            <h2>BIENVENIDO, HACE CLICK <br> EN EL BOTÓN Y REGÍSTRATE GRATIS.</h2>
+            <br>
+            <p>EMPEZA A GANAR PREMIOS CON NOSOTROS <br> Y DISFRUTA DE NUESTROS BONOS.</p>
+        </div>
     </div>
-  </div>
 
-  <div class="button-container">
-    <a href="https://wa.link/w2riv6" target="_blank" class="casino-button">
-      ¡Regístrate!
-    </a>
-  </div>
-</body>
-</html>
+    <div class="button-container" bis_skin_checked="1">
+        <a href="https://wa.link/w2riv6" target="_blank" class="casino-button" bis_skin_checked="1">
+            ¡Regístrate!
+        </a>
+    </div>
+
+
+
+
+</body></html>
