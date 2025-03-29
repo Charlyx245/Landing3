@@ -36,9 +36,24 @@
       z-index: -1;
     }
 
+    .logo-container {
+      position: absolute;
+      top: 20px;
+      left: 0;
+      right: 0;
+      display: flex;
+      justify-content: center;
+    }
+
+    .logo {
+      height: 60px;
+      width: auto;
+      margin-bottom: 20px;
+    }
+
     .container {
       max-width: 800px;
-      margin: 0 auto;
+      margin: 60px auto 0;
       position: relative;
       z-index: 1;
     }
@@ -94,6 +109,14 @@
     }
 
     @media (max-width: 600px) {
+      .logo {
+        height: 50px;
+      }
+      
+      .container {
+        margin-top: 50px;
+      }
+
       .text-overlay h2 {
         font-size: 20px;
       }
@@ -112,6 +135,10 @@
 </head>
 
 <body>
+  <div class="logo-container">
+    <img src="https://i.postimg.cc/pdvkPwpq/photo-2024-11-29-07-38-50-removebg-preview.png" alt="LuxuryGroup Logo" class="logo">
+  </div>
+
   <div class="container">
     <div class="text-overlay">
       <br>
