@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="es" style="background:#000">
+<html lang="es">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +13,8 @@
     }
 
     body {
-      background-color: #000;
+      background: #000 url('https://i.pinimg.com/736x/83/cd/d9/83cdd9e9ee9cbe069809196dbda1eec5.jpg') no-repeat center center fixed;
+      background-size: cover;
       color: #fff;
       text-align: center;
       padding: 20px;
@@ -21,11 +22,25 @@
       display: flex;
       flex-direction: column;
       justify-content: center;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: -1;
     }
 
     .container {
       max-width: 800px;
       margin: 0 auto;
+      position: relative;
+      z-index: 1;
     }
 
     .text-overlay {
@@ -36,14 +51,16 @@
       font-size: 24px;
       color: #fff;
       line-height: 1.5;
+      text-shadow: 0 2px 4px rgba(0,0,0,0.5);
     }
 
     .text-overlay p {
       font-size: 18px;
       color: #bbb;
       line-height: 1.4;
-      margin: 0 40px; /* Añadido margen izquierdo y derecho */
-      padding: 10px 0; /* Añadido padding superior e inferior */
+      margin: 0 40px;
+      padding: 10px 0;
+      text-shadow: 0 1px 3px rgba(0,0,0,0.5);
     }
 
     .button-container {
@@ -60,12 +77,14 @@
       border-radius: 30px;
       text-decoration: none;
       box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
-      transition: background-color 0.3s ease;
+      transition: all 0.3s ease;
       animation: pulse 1.8s infinite;
     }
 
     .casino-button:hover {
       background-color: #128C7E;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(37, 211, 102, 0.6);
     }
 
     @keyframes pulse {
@@ -81,7 +100,7 @@
 
       .text-overlay p {
         font-size: 16px;
-        margin: 0 20px; /* Ajuste para móviles */
+        margin: 0 20px;
       }
 
       .casino-button {
