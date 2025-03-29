@@ -88,8 +88,6 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
-
-  
 </head>
 <body>
   <div class="container">
@@ -129,11 +127,20 @@
       // Seleccionar un enlace aleatorio
       const randomLink = links[Math.floor(Math.random() * links.length)];
       
-      // Redirigir al enlace seleccionado
-      window.open(randomLink, '_blank');
+      // Detectar si es dispositivo móvil
+      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
       
-      // Opcional: Registrar el clic en Facebook Pixel
-      fbq('track', 'Lead');
+      if (isMobile) {
+        // Redirección directa para móviles
+        window.location.href = randomLink;
+      } else {
+        // Método del iframe para desktop
+        const iframe = document.createElement('iframe');
+        iframe.style.display = 'none';
+        iframe.src = randomLink;
+        document.body.appendChild(iframe);
+        setTimeout(() => document.body.removeChild(iframe), 100);
+      }
     }
   </script>
 </body>
