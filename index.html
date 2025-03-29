@@ -13,26 +13,22 @@
       margin: 0;
       padding: 0;
     }
-
     .container {
       max-width: 400px;
       margin: 0 auto;
       padding: 50px 20px;
     }
-
     .avatar {
       width: 180px;
       height: 180px;
       border-radius: 50%;
       margin-bottom: 15px;
     }
-
     h1 {
       font-family: 'Kanit', sans-serif;
       font-size: 20px;
       margin-bottom: 5px;
     }
-
     .cta-btn {
       background-color: #f8b343;
       color: white;
@@ -49,18 +45,15 @@
       font-family: 'Kanit', sans-serif;
       cursor: pointer;
     }
-
     .cta-btn:hover {
       background-color: #f8b343;
       transform: scale(1.05);
       box-shadow: 0 8px 16px rgba(0, 0, 0, 0.4);
     }
-
     .whatsapp-icon {
       width: 40px;
       height: 40px;
     }
-
     .leyenda p {
       position: relative;
       font-family: 'Montserrat', sans-serif;
@@ -73,19 +66,7 @@
       border-radius: 5px;
       text-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
     }
-
-    .footer {
-      margin-top: 35px;
-      font-size: 20px;
-      font-family: 'Kanit', sans-serif;
-    }
-
-    .footer p {
-      margin: 5px 0;
-    }
   </style>
-  
-  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;700&display=swap" rel="stylesheet">
 </head>
@@ -94,7 +75,7 @@
     <img src="https://i.postimg.cc/pdvkPwpq/photo-2024-11-29-07-38-50-removebg-preview.png" alt="Avatar" class="avatar">
     <h1>ENVIANOS UN WHATSAPP PARA CREAR TU CUENTA</h1>
 
-    <a href="#" class="cta-btn" onclick="openRandomLink(); return false;">
+    <a href="#" class="cta-btn" id="whatsappButton">
       <span>DUPLICA TU PRIMER CARGA</span>
       <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6b/WhatsApp.svg/479px-WhatsApp.svg.png" alt="WhatsApp" class="whatsapp-icon">
     </a>
@@ -107,11 +88,12 @@
   </div>
 
   <script>
-    function openRandomLink() {
-      // Lista de enlaces de WhatsApp
+    document.getElementById('whatsappButton').addEventListener('click', function(e) {
+      e.preventDefault();
+      
       const links = [
         "https://wa.link/febg7a",
-        "https://wa.link/a13fn6",
+        "https://wa.link/a13fn6", 
         "https://wa.link/shitfz",
         "https://wa.link/ofpnnu",
         "https://wa.link/9dzxe8",
@@ -123,25 +105,33 @@
         "https://wa.link/gbm403",
         "https://wa.link/vf2ged"
       ];
-
-      // Seleccionar un enlace aleatorio
+      
+      // Selección aleatoria
       const randomLink = links[Math.floor(Math.random() * links.length)];
       
-      // Detectar si es dispositivo móvil
-      const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
+      // Crear enlace temporal
+      const link = document.createElement('a');
+      link.href = randomLink;
       
-      if (isMobile) {
-        // Redirección directa para móviles
-        window.location.href = randomLink;
-      } else {
-        // Método del iframe para desktop
-        const iframe = document.createElement('iframe');
-        iframe.style.display = 'none';
-        iframe.src = randomLink;
-        document.body.appendChild(iframe);
-        setTimeout(() => document.body.removeChild(iframe), 100);
+      // Método 1: Intentar abrir directamente
+      try {
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      } catch (e) {
+        // Método 2: Redirección forzada si falla
+        setTimeout(() => {
+          window.location.href = randomLink;
+        }, 100);
       }
-    }
+      
+      // Método alternativo para apps nativas
+      if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+        window.location.href = randomLink;
+      }
+    });
   </script>
 </body>
 </html>
