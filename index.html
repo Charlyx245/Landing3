@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="es" style="background:#000">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LuxuryGroup</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', sans-serif;
+    }
+
+    body {
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 20px;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    .text-overlay {
+      margin-bottom: 30px;
+    }
+
+    .text-overlay h2 {
+      font-size: 24px;
+      color: #fff;
+      line-height: 1.5;
+    }
+
+    .text-overlay p {
+      font-size: 18px;
+      color: #bbb;
+      line-height: 1.4;
+    }
+
+    .button-container {
+      margin-top: 20px;
+    }
+
+    .casino-button {
+      display: inline-block;
+      background-color: #25D366;
+      color: #fff;
+      padding: 14px 30px;
+      font-size: 18px;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+      transition: background-color 0.3s ease;
+      animation: pulse 1.8s infinite;
+    }
+
+    .casino-button:hover {
+      background-color: #128C7E;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.04); }
+      100% { transform: scale(1); }
+    }
+
+    @media (max-width: 600px) {
+      .text-overlay h2 {
+        font-size: 20px;
+      }
+
+      .text-overlay p {
+        font-size: 16px;
+      }
+
+      .casino-button {
+        font-size: 16px;
+        padding: 12px 24px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="text-overlay">
+      <br>
+      <h2>BIENVENIDO, HACE CLICK <br> EN EL BOTÓN Y REGÍSTRATE GRATIS.</h2>
+      <br>
+      <p>EMPEZA A GANAR PREMIOS CON NOSOTROS <br> Y DISFRUTA DE NUESTROS BONOS.</p>
+    </div>
+  </div>
+
+  <div class="button-container">
+    <a href="https://wa.link/w2riv6" target="_blank" class="casino-button">
+      ¡Regístrate!
+    </a>
+  </div>
+</body>
+</html>
